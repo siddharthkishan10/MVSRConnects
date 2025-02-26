@@ -1,0 +1,17 @@
+# Virtual environment folders
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Environment variables (sensitive data)
+.env
+
+# System files (e.g., on macOS)
+.DS_Store
+
+# IDE-specific files (e.g., VS Code)
+.vscode/

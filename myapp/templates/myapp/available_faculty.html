@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Faculty - MVSRConnect</title>
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    {% include 'myapp/navbar.html' %}
+
+    <div class="container">
+        <h1>Available Faculty</h1>
+        <table class="faculty-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Domain</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr. H. Jayasree</td>
+                    <td>Artificial Intelligence</td>
+                </tr>
+                <tr>
+                    <td>Dr. John Doe</td>
+                    <td>Web Development</td>
+                </tr>
+                <tr>
+                    <td>Dr. Jane Smith</td>
+                    <td>Data Science</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
