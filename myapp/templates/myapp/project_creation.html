@@ -1,78 +1,70 @@
+{% extends 'myapp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Creation - MVSRConnect</title>
-    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
-</head>
-<body>
-    {% include 'myapp/navbar.html' %}
 
-    <div class="container">
-        <h1>Create Project</h1>
-        <form id="projectForm">
-            <!-- Common Fields -->
-            <label for="title">Project Title:</label>
-            <input type="text" id="title" name="title" required>
+{% block title %}Project Creation - MVSRConnect{% endblock %}
 
-            <label for="domain">Project Domain:</label>
-            <select id="domain" name="domain" required>
-                <option value="">--Select Domain--</option>
-                <option value="ai">Artificial Intelligence</option>
-                <option value="web">Web Development</option>
-                <option value="data">Data Science</option>
-            </select>
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Create Project</h1>
+<form id="projectForm">
+    <!-- Common Fields -->
+    <label class="block font-semibold mb-2">Project Title:</label>
+    <input type="text" id="title" name="title" class="w-full p-2 border rounded mb-3" required>
 
-            <!-- Teammates Section -->
-            <label>Teammates:</label>
-            <div id="teammates">
-                <!-- Initial 3 Teammates -->
-                <div class="teammate-row">
-                    <input type="text" name="teammate1" placeholder="Teammate 1 Name" required>
-                    <input type="text" name="roll1" placeholder="Teammate 1 Roll Number" required>
-                    {% if course == 'summer_internship' %}
-                        <input type="text" name="internshipDomain1" placeholder="Internship Domain" required>
-                    {% endif %}
-                </div>
-                <div class="teammate-row">
-                    <input type="text" name="teammate2" placeholder="Teammate 2 Name">
-                    <input type="text" name="roll2" placeholder="Teammate 2 Roll Number">
-                    {% if course == 'summer_internship' %}
-                        <input type="text" name="internshipDomain2" placeholder="Internship Domain">
-                    {% endif %}
-                </div>
-                <div class="teammate-row">
-                    <input type="text" name="teammate3" placeholder="Teammate 3 Name">
-                    <input type="text" name="roll3" placeholder="Teammate 3 Roll Number">
-                    {% if course == 'summer_internship' %}
-                        <input type="text" name="internshipDomain3" placeholder="Internship Domain">
-                    {% endif %}
-                </div>
-            </div>
-            <button type="button" id="addTeammate">+ Add Teammate</button>
+    <label class="block font-semibold mb-2">Project Domain:</label>
+    <select id="domain" name="domain" class="w-full p-2 border rounded mb-3" required>
+        <option value="">--Select Domain--</option>
+        <option value="ai">Artificial Intelligence</option>
+        <option value="web">Web Development</option>
+        <option value="data">Data Science</option>
+    </select>
 
-            <!-- Batch Number -->
-            <label for="batchNumber">Batch Number:</label>
-            <input type="text" id="batchNumber" name="batchNumber" value="1" readonly>
-
-            <!-- Abstract -->
-            <label for="abstract">Abstract:</label>
-            <textarea id="abstract" name="abstract" rows="4" required></textarea>
-            
-
-            <!-- Buttons -->
-            <button type="submit">Save</button>
-            <a href="{% url 'available_faculty' %}" target="_blank">
-                <button type="button">Check Available Faculty</button>
-            </a>
-        </form>
-
-        <!-- Success Message -->
-        <div id="successMessage" class="success-message" style="display: none;">Saved Successfully!</div>
+    <!-- Teammates Section -->
+    <label class="block font-semibold mb-2">Teammates:</label>
+    <div id="teammates">
+        <!-- Initial 3 Teammates (No Remove Button) -->
+        <div class="flex gap-2 mb-2">
+            <input type="text" name="teammate1" placeholder="Teammate 1 Name" class="p-2 border rounded w-full" required>
+            <input type="text" name="roll1" placeholder="Teammate 1 Roll Number" class="p-2 border rounded w-full" required>
+            {% if course == 'summer_internship' %}
+                <input type="text" name="internshipDomain1" placeholder="Internship Domain" class="p-2 border rounded w-full" required>
+            {% endif %}
+        </div>
+        <div class="flex gap-2 mb-2">
+            <input type="text" name="teammate2" placeholder="Teammate 2 Name" class="p-2 border rounded w-full">
+            <input type="text" name="roll2" placeholder="Teammate 2 Roll Number" class="p-2 border rounded w-full">
+            {% if course == 'summer_internship' %}
+                <input type="text" name="internshipDomain2" placeholder="Internship Domain" class="p-2 border rounded w-full">
+            {% endif %}
+        </div>
+        <div class="flex gap-2 mb-2">
+            <input type="text" name="teammate3" placeholder="Teammate 3 Name" class="p-2 border rounded w-full">
+            <input type="text" name="roll3" placeholder="Teammate 3 Roll Number" class="p-2 border rounded w-full">
+            {% if course == 'summer_internship' %}
+                <input type="text" name="internshipDomain3" placeholder="Internship Domain" class="p-2 border rounded w-full">
+            {% endif %}
+        </div>
     </div>
+    <button type="button" id="addTeammate" class="mt-2 bg-green-500 text-white px-4 py-2 rounded">+ Add Teammate</button>
 
-    <script src="{% static 'myapp/script.js' %}"></script>
-</body>
-</html>
+    <!-- Batch Number -->
+    <label class="block font-semibold mb-2">Batch Number:</label>
+    <input type="text" id="batchNumber" name="batchNumber" value="1" class="w-full p-2 border rounded mb-3" readonly>
+
+    <!-- Abstract -->
+    <label class="block font-semibold mb-2">Abstract:</label>
+    <textarea id="abstract" name="abstract" rows="4" class="w-full p-2 border rounded mb-3" required></textarea>
+
+    <!-- Buttons -->
+    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded mb-2">Save</button>
+    <a href="{% url 'available_faculty' %}" target="_blank">
+        <button type="button" class="w-full bg-yellow-500 text-white px-4 py-2 rounded">Check Available Faculty</button>
+    </a>
+</form>
+
+<!-- Success Message -->
+<div id="successMessage" class="success-message mt-4 p-2 bg-green-500 text-white text-center rounded" style="display: none;">Saved Successfully!</div>
+
+{% block scripts %}
+<script src="{% static 'myapp/script.js' %}"></script>
+{% endblock %}
+{% endblock %}

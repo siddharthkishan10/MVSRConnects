@@ -1,39 +1,29 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Faculty - MVSRConnect</title>
-    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
-</head>
-<body>
-    {% include 'myapp/navbar.html' %}
+{% extends 'myapp/base.html' %}
 
-    <div class="container">
-        <h1>Available Faculty</h1>
-        <table class="faculty-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Domain</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Dr. H. Jayasree</td>
-                    <td>Artificial Intelligence</td>
-                </tr>
-                <tr>
-                    <td>Dr. John Doe</td>
-                    <td>Web Development</td>
-                </tr>
-                <tr>
-                    <td>Dr. Jane Smith</td>
-                    <td>Data Science</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+{% block title %}Available Faculty - MVSRConnect{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Available Faculty</h1>
+<table class="w-full border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="p-2 border border-gray-300">Name</th>
+            <th class="p-2 border border-gray-300">Domain</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="p-2 border border-gray-300">Dr. H. Jayasree</td>
+            <td class="p-2 border border-gray-300">Artificial Intelligence</td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-300">Dr. John Doe</td>
+            <td class="p-2 border border-gray-300">Web Development</td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-300">Dr. Jane Smith</td>
+            <td class="p-2 border border-gray-300">Data Science</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

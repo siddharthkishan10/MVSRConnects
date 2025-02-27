@@ -1,18 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - MVSRConnect</title>
-    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
-</head>
-<body>
-    {% include 'myapp/navbar.html' %}
 
-    <div class="container">
-        <h1>Welcome to MVSRConnect</h1>
-        <p>Your platform for efficient communication between students and faculty.</p>
-    </div>
-</body>
-</html>
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}Home - MVSRConnect{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Welcome to MVSRConnect</h1>
+<p class="text-gray-700">Your platform for efficient communication between students and faculty.</p>
+{% endblock %}

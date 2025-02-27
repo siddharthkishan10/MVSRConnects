@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}MVSR Connect{% endblock %}</title>
+</head>
+<body class="bg-blue-900">
+    <nav class="bg-blue-950 w-full h-auto px-3 py-3 flex justify-between items-center">
+        <h1 class="text-xl sm:text-yellow-500 sm:font-bold md:text-xl md:font-bold md:text-yellow-500 lg:text-2xl lg:text-yellow-500 lg:font-bold">MVSR Connect</h1>
+        <div class="flex gap-1">
+            <a href="{% url 'home' %}" class="bg-yellow-500 sm:py-1 sm:px-2 sm:font-bold sm:rounded-sm md:rounded-sm md:px-3 md:py-2 md:font-bold lg:rounded-sm lg:py-2 lg:px-6 lg:font-bold">Home</a>
+            <a href="{% url 'select_course' %}" class="bg-yellow-500 sm:py-1 sm:px-2 sm:font-bold sm:rounded-sm md:rounded-sm md:px-3 md:py-2 md:font-bold lg:rounded-sm lg:py-2 lg:px-6 lg:font-bold">Create Project</a>
+            <a href="{% url 'jobs_internships' %}" class="bg-yellow-500 sm:py-1 sm:px-2 sm:font-bold sm:rounded-sm md:rounded-sm md:px-3 md:py-2 md:font-bold lg:rounded-sm lg:py-2 lg:px-6 lg:font-bold">Jobs and Internships</a>
+            <a href="{% url 'profile' %}" class="bg-yellow-500 sm:py-1 sm:px-2 sm:font-bold sm:rounded-sm md:rounded-sm md:px-3 md:py-2 md:font-bold lg:rounded-sm lg:py-2 lg:px-6 lg:font-bold">Profile</a>
+        </div>
+    </nav>
+
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg mt-5">
+        {% block content %}
+        <!-- Content from child templates will go here -->
+        {% endblock %}
+    </div>
+
+    {% block scripts %}
+    <!-- JavaScript from child templates will go here -->
+    {% endblock %}
+</body>
+</html>

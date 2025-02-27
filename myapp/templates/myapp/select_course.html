@@ -1,27 +1,19 @@
+{% extends 'myapp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Course - MVSRConnect</title>
-    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
-</head>
-<body>
-    {% include 'myapp/navbar.html' %}
 
-    <div class="container">
-        <h1>Create Project</h1>
-        <form action="{% url 'project_creation' %}" method="GET">
-            <label for="course">Select a Course:</label>
-            <select id="course" name="course" required>
-                <option value="">--Select a Course--</option>
-                <option value="summer_internship">Summer Internship</option>
-                <option value="mini_project">Mini Project</option>
-                <option value="major_project">Major Project</option>
-            </select>
-            <button type="submit">Next</button>
-        </form>
-    </div>
-</body>
-</html>
+
+{% block title %}Select Course - MVSRConnect{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Create Project</h1>
+<form action="{% url 'project_creation' %}" method="GET">
+    <label class="block font-semibold mb-2">Select a Course:</label>
+    <select name="course" class="w-full p-2 border rounded mb-3" required>
+        <option value="">--Select a Course--</option>
+        <option value="summer_internship">Summer Internship</option>
+        <option value="mini_project">Mini Project</option>
+        <option value="major_project">Major Project</option>
+    </select>
+    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded">Next</button>
+</form>
+{% endblock %}
